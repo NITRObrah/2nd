@@ -1,1 +1,101 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: url('https://wallpapers-clan.com/wp-content/uploads/2024/03/starfall-night-sky-mountains-aesthetic-gif-preview-desktop-wallpaper.gif') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Whitney', 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: ""; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); z-index: 1;
+}
+
+/* Cursor */
+.cursor {
+  position: fixed; width: 36px; height: 36px; border: 3px solid #8a2be2;
+  border-radius: 50%; pointer-events: none; z-index: 9999;
+  transition: all 0.1s ease; mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+.cursor::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 12px; height: 12px; background: #8a2be2; border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.cursor.hover { 
+  width: 48px; height: 48px; border-color: #00bfff; 
+  transform: translate(-50%,-50%) scale(1.1); 
+}
+.cursor.hover::after { background: #00bfff; }
+
+/* Time Header */
+.time-header {
+  position: relative; z-index: 20; background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.time-container { 
+  max-width: 520px; margin: 0 auto; padding: 15px 20px; text-align: center; 
+}
+.glow-time {
+  font-size: 2.2rem; font-weight: 700; letter-spacing: 3px;
+  text-shadow: 0 0 8px rgba(0,212,255,0.8), 0 0 16px rgba(0,212,255,0.5);
+}
+.soft-date { font-size: 1rem; opacity: 0.9; letter-spacing: 1px; }
+
+/* Tabs */
+.tabs-bar {
+  display: flex; background: rgba(0,0,0,0.6); backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255,255,255,0.1); overflow-x: auto; z-index: 15;
+}
+.tab {
+  padding: 12px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  color: #fff; font-weight: 500; cursor: pointer; white-space: nowrap; transition: all 0.2s;
+  min-width: 120px; display: flex; align-items: center; gap: 8px;
+}
+.tab.active { background: rgba(138,43,226,0.8); border-color: #8a2be2; }
+.tab-close { font-size: 14px; opacity: 0.7; }
+.tab-close:hover { color: #ff4444; opacity: 1; }
+.new-tab-btn {
+  padding: 12px 16px; background: rgba(75,0,130,0.8); border: none; color: #fff;
+  cursor: pointer; transition: all 0.2s; font-size: 16px;
+}
+.new-tab-btn:hover { background: rgba(75,0,130,1); }
+
+/* Content */
+.content-area { 
+  flex: 1; position: relative; overflow: hidden; height: calc(100vh - 140px); 
+}
+.browser-frame {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: none;
+}
+.browser-frame.active { display: block; }
+
+/* Settings */
+.settings-btn {
+  position: fixed; top: 80px; right: 20px; z-index: 100; background: rgba(75,0,130,0.8);
+  border: none; color: #fff; width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
+}
+.settings-modal {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8); z-index: 1000;
+}
+.settings-panel {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  background: rgba(20,20,30,0.95); backdrop-filter: blur(20px); border-radius: 20px;
+  padding: 30px; max-width: 400px; width: 90%; border: 1px solid rgba(255,255,255,0.1);
+}
+label { display: block; margin: 10px 0; }
+h3 { margin-bottom: 20px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .glow-time { font-size: 1.8rem; }
+  .tabs-bar { padding: 0 5px; }
+  .tab { padding: 10px 15px; min-width: 100px; font-size: 14px; }
+}
 
